@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://qh8ufuekbcyi"]
+
+[ext_resource type="Script" uid="uid://cvay3ab3skone" path="res://scripts/button_double_down.gd" id="1_xi3yi"]
+[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="2_1s8ev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(226, 45)
+
+[node name="double_down" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_xi3yi")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+scale = Vector2(2.25615, 0.444868)
+texture = ExtResource("2_1s8ev")
+
+[node name="text" type="Label" parent="visual"]
+modulate = Color(0.114897, 0.114897, 0.114897, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DOUBLE DOWN"
+horizontal_alignment = 2
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_sugp2")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

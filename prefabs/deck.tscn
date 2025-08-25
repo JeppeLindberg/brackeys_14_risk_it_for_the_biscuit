@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://chwlc165oosec"]
+
+[ext_resource type="Script" uid="uid://doiec7ph5d8pc" path="res://scripts/deck.gd" id="1_br4d6"]
+[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="2_mftrw"]
+
+[node name="deck" type="Node2D" node_paths=PackedStringArray("dealer_draw_cooldown")]
+script = ExtResource("1_br4d6")
+dealer_draw_cooldown = NodePath("dealer_draw_cooldown")
+
+[node name="visual" type="Node2D" parent="."]
+position = Vector2(64, 83)
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+scale = Vector2(1.28, 1.6)
+texture = ExtResource("2_mftrw")
+
+[node name="dealer_draw_cooldown" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="dealer_draw_cooldown" to="." method="_on_dealer_draw_cooldown_timeout"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfwbrulhski62"]
+
+[ext_resource type="Script" uid="uid://cpx8t1ljs2jv5" path="res://scripts/overlay.gd" id="1_k8kpt"]
+
+[node name="overlay" type="Node2D" node_paths=PackedStringArray("dealer_is_bust", "player_is_bust", "dealer_won")]
+script = ExtResource("1_k8kpt")
+dealer_is_bust = NodePath("dealer_is_bust")
+player_is_bust = NodePath("player_is_bust")
+dealer_won = NodePath("dealer_won")
+
+[node name="dealer_is_bust" type="Node2D" parent="."]
+
+[node name="text" type="Label" parent="dealer_is_bust"]
+modulate = Color(1, 0.462745, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 139.0
+offset_right = 341.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DEALER IS BUST"
+
+[node name="player_is_bust" type="Node2D" parent="."]
+
+[node name="text" type="Label" parent="player_is_bust"]
+modulate = Color(1, 0.462745, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 139.0
+offset_right = 341.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAYER IS BUST"
+
+[node name="dealer_won" type="Node2D" parent="."]
+
+[node name="text" type="Label" parent="dealer_won"]
+modulate = Color(1, 0.462745, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 139.0
+offset_right = 341.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DEALER WON"

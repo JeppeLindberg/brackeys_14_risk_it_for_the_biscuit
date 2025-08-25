@@ -1,0 +1,229 @@
+[gd_scene load_steps=24 format=3 uid="uid://b1h5m2ppiw4vh"]
+
+[ext_resource type="PackedScene" uid="uid://chwlc165oosec" path="res://prefabs/deck.tscn" id="1_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://b3vo520r8182e" path="res://prefabs/button_hit_me.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://qh8ufuekbcyi" path="res://prefabs/button_double_down.tscn" id="2_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://kvkuyxj63tm6" path="res://prefabs/button_rewind_time.tscn" id="2_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://cl4mmmslmit10" path="res://prefabs/button_stay.tscn" id="4_muem4"]
+[ext_resource type="PackedScene" uid="uid://c8erksjsu8k07" path="res://prefabs/card_2.tscn" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://bctitgmwr1tw7" path="res://scripts/player_score.gd" id="5_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://cyklelnhty7k7" path="res://prefabs/button_shop.tscn" id="5_og1vs"]
+[ext_resource type="Script" uid="uid://c1t7hshml7k8c" path="res://scripts/player_hand.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://c2qmb380sdhxw" path="res://scripts/dealer_score.gd" id="6_jbj1t"]
+[ext_resource type="Script" uid="uid://d1151mk0jtjdf" path="res://scripts/dealer_hand.gd" id="6_muem4"]
+[ext_resource type="Script" uid="uid://bdyqhpvilr4ae" path="res://scripts/draw_pile.gd" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://b02tjccco401u" path="res://prefabs/card_3.tscn" id="8_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bf32fhycbv7w8" path="res://prefabs/card_4.tscn" id="9_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://dtvgxpntqs5v0" path="res://prefabs/card_5.tscn" id="10_muem4"]
+[ext_resource type="Script" uid="uid://5dj56ianjbtp" path="res://scripts/pot.gd" id="10_y6deb"]
+[ext_resource type="PackedScene" uid="uid://c7ti6xfyw7foe" path="res://prefabs/card_6.tscn" id="11_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://cr2e5bktwu0w2" path="res://prefabs/card_7.tscn" id="12_0ld40"]
+[ext_resource type="PackedScene" uid="uid://b40332jgpw1gc" path="res://prefabs/card_8.tscn" id="13_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://iqsu6i3b0u0f" path="res://prefabs/card_9.tscn" id="14_yc10j"]
+[ext_resource type="PackedScene" uid="uid://3bgk4m7now57" path="res://prefabs/card_10.tscn" id="15_jscy8"]
+[ext_resource type="Script" uid="uid://dilh0cbg7eh1t" path="res://scripts/pot_pool.gd" id="22_jscy8"]
+[ext_resource type="PackedScene" uid="uid://bfwbrulhski62" path="res://prefabs/overlay.tscn" id="22_pm3ni"]
+
+[node name="main" type="Node2D"]
+
+[node name="deck" parent="." node_paths=PackedStringArray("draw_pile", "player_hand", "dealer_hand", "player_score", "dealer_score", "overlay") instance=ExtResource("1_jbj1t")]
+draw_pile = NodePath("../draw_pile")
+player_hand = NodePath("../player_hand")
+dealer_hand = NodePath("../dealer_hand")
+player_score = NodePath("../player_score")
+dealer_score = NodePath("../dealer_score")
+overlay = NodePath("../overlay")
+
+[node name="rewind_time" type="Node2D" parent="."]
+visible = false
+
+[node name="rewind_time" parent="rewind_time" node_paths=PackedStringArray("pot", "overlay", "rewind_time", "deck") instance=ExtResource("2_pm3ni")]
+position = Vector2(397, 271)
+pot = NodePath("../../pot")
+overlay = NodePath("../../overlay")
+rewind_time = NodePath("..")
+deck = NodePath("../../deck")
+
+[node name="shop_or_double_down" type="Node2D" parent="."]
+visible = false
+
+[node name="double_down" parent="shop_or_double_down" node_paths=PackedStringArray("pot", "overlay", "shop_or_double_down", "hit_me_or_stay", "deck") instance=ExtResource("2_dp3eg")]
+position = Vector2(397, 271)
+pot = NodePath("../../pot")
+overlay = NodePath("../../overlay")
+shop_or_double_down = NodePath("..")
+hit_me_or_stay = NodePath("../../hit_me_or_stay")
+deck = NodePath("../../deck")
+
+[node name="shop" parent="shop_or_double_down" instance=ExtResource("5_og1vs")]
+position = Vector2(141, 272)
+
+[node name="hit_me_or_stay" type="Node2D" parent="."]
+
+[node name="hit_me_button" parent="hit_me_or_stay" node_paths=PackedStringArray("deck") instance=ExtResource("2_0wfyh")]
+position = Vector2(397, 271)
+deck = NodePath("../../deck")
+
+[node name="stay_button" parent="hit_me_or_stay" node_paths=PackedStringArray("deck", "hit_me_or_stay_buttons") instance=ExtResource("4_muem4")]
+position = Vector2(141, 272)
+deck = NodePath("../../deck")
+hit_me_or_stay_buttons = NodePath("..")
+
+[node name="player_score" type="Node2D" parent="." node_paths=PackedStringArray("player_hand", "score_text")]
+position = Vector2(191, 14)
+script = ExtResource("5_jbj1t")
+player_hand = NodePath("../player_hand")
+score_text = NodePath("visual/text")
+
+[node name="visual" type="Node2D" parent="player_score"]
+
+[node name="text" type="Label" parent="player_score/visual"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ASD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_hand" type="Node2D" parent="."]
+position = Vector2(255, 12)
+script = ExtResource("5_tbgi4")
+
+[node name="dealer_hand" type="Node2D" parent="."]
+position = Vector2(256, 107)
+script = ExtResource("6_muem4")
+
+[node name="dealer_score" type="Node2D" parent="." node_paths=PackedStringArray("dealer_hand", "score_text")]
+position = Vector2(191, 117)
+script = ExtResource("6_jbj1t")
+dealer_hand = NodePath("../dealer_hand")
+score_text = NodePath("visual/text")
+
+[node name="visual" type="Node2D" parent="dealer_score"]
+
+[node name="text" type="Label" parent="dealer_score/visual"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ASD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pot" type="Node2D" parent="." node_paths=PackedStringArray("money", "bet", "winnings", "shop_or_double_down")]
+script = ExtResource("10_y6deb")
+money = NodePath("money")
+bet = NodePath("bet")
+winnings = NodePath("potential_winnings")
+shop_or_double_down = NodePath("../shop_or_double_down")
+
+[node name="money" type="Node2D" parent="pot" node_paths=PackedStringArray("text")]
+position = Vector2(252, 196)
+script = ExtResource("22_jscy8")
+text = NodePath("visual/text")
+
+[node name="visual" type="Node2D" parent="pot/money"]
+
+[node name="text" type="Label" parent="pot/money/visual"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="bet" type="Node2D" parent="pot" node_paths=PackedStringArray("text")]
+position = Vector2(237, 226)
+script = ExtResource("22_jscy8")
+text = NodePath("visual/text")
+
+[node name="visual" type="Node2D" parent="pot/bet"]
+
+[node name="text" type="Label" parent="pot/bet/visual"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="potential_winnings" type="Node2D" parent="pot" node_paths=PackedStringArray("text")]
+position = Vector2(373, 211)
+script = ExtResource("22_jscy8")
+text = NodePath("visual/text")
+
+[node name="visual" type="Node2D" parent="pot/potential_winnings"]
+
+[node name="text" type="Label" parent="pot/potential_winnings/visual"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+horizontal_alignment = 1
+
+[node name="draw_pile" type="Node2D" parent="."]
+position = Vector2(0, 172)
+script = ExtResource("6_o6xl0")
+
+[node name="card" parent="draw_pile" instance=ExtResource("4_tefeu")]
+
+[node name="card2" parent="draw_pile" instance=ExtResource("8_jkv2x")]
+
+[node name="card3" parent="draw_pile" instance=ExtResource("9_jbj1t")]
+
+[node name="card4" parent="draw_pile" instance=ExtResource("10_muem4")]
+
+[node name="card5" parent="draw_pile" instance=ExtResource("11_dp3eg")]
+
+[node name="card6" parent="draw_pile" instance=ExtResource("12_0ld40")]
+
+[node name="card7" parent="draw_pile" instance=ExtResource("13_gqmmt")]
+
+[node name="card8" parent="draw_pile" instance=ExtResource("14_yc10j")]
+
+[node name="card9" parent="draw_pile" instance=ExtResource("15_jscy8")]
+
+[node name="overlay" parent="." node_paths=PackedStringArray("pot", "rewind_time", "hit_me_or_stay") instance=ExtResource("22_pm3ni")]
+pot = NodePath("../pot")
+rewind_time = NodePath("../rewind_time")
+hit_me_or_stay = NodePath("../hit_me_or_stay")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(262, 151)
