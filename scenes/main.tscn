@@ -113,11 +113,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="player_hand" type="Node2D" parent="board"]
-position = Vector2(-23, -142)
+position = Vector2(-19, -99)
 script = ExtResource("5_tbgi4")
 
 [node name="dealer_hand" type="Node2D" parent="board"]
-position = Vector2(-22, -47)
+position = Vector2(-22, -28)
 script = ExtResource("6_muem4")
 
 [node name="dealer_score" type="Node2D" parent="board" node_paths=PackedStringArray("dealer_hand", "score_text")]
@@ -265,7 +265,7 @@ camera = NodePath("../../../camera")
 pot = NodePath("../../../board/pot")
 
 [node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("shop", "available_cards", "board", "overlay")]
-position = Vector2(239, 154)
+position = Vector2(1089, 140)
 script = ExtResource("14_2wyq8")
 shop = NodePath("../shop")
 available_cards = NodePath("../shop/available_cards")
@@ -273,7 +273,7 @@ board = NodePath("../board")
 overlay = NodePath("overlay")
 
 [node name="deck" parent="camera" node_paths=PackedStringArray("draw_pile", "player_hand", "dealer_hand", "player_score", "dealer_score", "overlay") instance=ExtResource("1_jbj1t")]
-position = Vector2(-262, -151)
+position = Vector2(-225, -94)
 draw_pile = NodePath("../draw_pile")
 player_hand = NodePath("../../board/player_hand")
 dealer_hand = NodePath("../../board/dealer_hand")

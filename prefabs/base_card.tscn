@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://fj0mhkudf80"]
+
+[ext_resource type="Texture2D" uid="uid://b4remnejvdewn" path="res://sprites/card.png" id="1_pyua1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77173"]
+size = Vector2(46, 60)
+
+[node name="base_card" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_77173")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_pyua1")

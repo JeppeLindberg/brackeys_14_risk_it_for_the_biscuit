@@ -1,44 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1wtdl1uokp1p"]
+[gd_scene load_steps=7 format=3 uid="uid://b1wtdl1uokp1p"]
 
 [ext_resource type="Script" uid="uid://bxxcs0skb8dap" path="res://scripts/shop_card.gd" id="1_u812a"]
 [ext_resource type="PackedScene" uid="uid://cr2e5bktwu0w2" path="res://prefabs/draw_pile_card_7.tscn" id="2_u812a"]
-[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="3_mo8gw"]
+[ext_resource type="PackedScene" uid="uid://fj0mhkudf80" path="res://prefabs/base_card.tscn" id="4_hwe6q"]
+[ext_resource type="Texture2D" uid="uid://dhsl168kwfkx6" path="res://sprites/card_basic.png" id="4_mo8gw"]
+[ext_resource type="FontFile" uid="uid://ci21lm8lt5rxg" path="res://fonts/BoldPixels.ttf" id="5_lxean"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_77173"]
-size = Vector2(93.5, 134.5)
+[sub_resource type="Theme" id="Theme_tu254"]
+default_font = ExtResource("5_lxean")
+default_font_size = 16
 
 [node name="shop_card" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_u812a")
 draw_pile_card_prefab = ExtResource("2_u812a")
 
+[node name="base_card" parent="." instance=ExtResource("4_hwe6q")]
+
 [node name="visual" type="Node2D" parent="."]
-position = Vector2(100, 15)
 
 [node name="sprite" type="Sprite2D" parent="visual"]
-position = Vector2(-50, 54)
-scale = Vector2(0.967033, 1.37838)
-texture = ExtResource("3_mo8gw")
+texture_filter = 1
+texture = ExtResource("4_mo8gw")
 
 [node name="text" type="Label" parent="visual"]
-modulate = Color(0.114897, 0.114897, 0.114897, 1)
+modulate = Color(0.219608, 0.113725, 0.305882, 1)
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.0
-offset_top = 39.0
-offset_right = -33.0
-offset_bottom = 62.0
+offset_left = -19.0
+offset_top = -33.5
+offset_right = 21.0
+offset_bottom = -10.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_tu254")
 text = "7"
-horizontal_alignment = 2
-
-[node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(49.25, 67.75)
-shape = SubResource("RectangleShape2D_77173")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
