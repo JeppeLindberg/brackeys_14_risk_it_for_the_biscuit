@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://df5gtiilxy7p0"]
+
+[ext_resource type="Script" uid="uid://by1oow38nr0wg" path="res://scripts/card_piedestal.gd" id="1_5dwdi"]
+
+[node name="card_piedestal" type="Node2D" node_paths=PackedStringArray("price_text")]
+script = ExtResource("1_5dwdi")
+price_text = NodePath("visual/price")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="price" type="Label" parent="visual"]
+offset_top = -36.0
+offset_right = 40.0
+offset_bottom = -13.0
+text = "5"

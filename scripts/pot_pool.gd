@@ -1,25 +1,27 @@
 extends Node2D
 
-@export var text: Label
+@export var texts: Array [Label]
+@export var amount = 0
 
-var amount_to_decrease_by = 0
-var amount_to_increase_by = 0
+
+var amount_to_adjust_by = 0
 
 
 func _process(_delta: float) -> void:
-	if amount_to_decrease_by > 0:
-		text.text = str(get_amount() - 1)
-		amount_to_decrease_by -= 1
-	if amount_to_increase_by > 0:
-		text.text = str(get_amount() + 1)
-		amount_to_increase_by -= 1
+	if amount_to_adjust_by > 0:
+		amount += 1;
+		amount_to_adjust_by -= 1
+	if amount_to_adjust_by < 0:
+		amount -= 1;
+		amount_to_adjust_by += 1
+
+	for text in texts:
+		text.text = str(amount)
 
 func get_amount():
-	return int(text.text)
+	return amount + amount_to_adjust_by
 
-func decrease_by(amount):
-	amount_to_decrease_by += amount
+func adjust_by(adjust_amount):
+	amount_to_adjust_by += adjust_amount
 
-func increase_by(amount):
-	amount_to_increase_by += amount
 

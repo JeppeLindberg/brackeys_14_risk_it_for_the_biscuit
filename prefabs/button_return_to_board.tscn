@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyklelnhty7k7"]
+[gd_scene load_steps=4 format=3 uid="uid://bisqk3m3bvmr4"]
 
-[ext_resource type="Script" uid="uid://jpmw4d7i053l" path="res://scripts/button_shop.gd" id="1_q3rys"]
-[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="2_2sq2p"]
+[ext_resource type="Script" uid="uid://cypdowfu5fj51" path="res://scripts/button_return_to_board.gd" id="1_16ri8"]
+[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="2_q5nhv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
-size = Vector2(224, 44)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(226, 45)
 
-[node name="shop" type="StaticBody2D"]
+[node name="return_to_board" type="StaticBody2D"]
 input_pickable = true
-script = ExtResource("1_q3rys")
+script = ExtResource("1_16ri8")
 
 [node name="visual" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="visual"]
 scale = Vector2(2.25615, 0.444868)
-texture = ExtResource("2_2sq2p")
+texture = ExtResource("2_q5nhv")
 
 [node name="text" type="Label" parent="visual"]
 modulate = Color(0.114897, 0.114897, 0.114897, 1)
@@ -29,12 +29,12 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "GO TO SHOP"
+text = "RETURN TO BOARD"
 horizontal_alignment = 2
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_jbj1t")
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_sugp2")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

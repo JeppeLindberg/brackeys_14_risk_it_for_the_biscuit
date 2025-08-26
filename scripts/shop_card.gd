@@ -1,20 +1,25 @@
 extends StaticBody2D
 
-@export var overlay: Node2D
-@export var deck: Node2D
-@export var camera: Camera2D
+@export var draw_pile_card_prefab: PackedScene
+
+@onready var main = get_node('/root/main')
+@onready var draw_pile = main.draw_pile
 
 var mouse_hovering = false
 var mouse_down = false
 
 
 func _pressed():
-	overlay.clear()
-	deck.reset()
-	camera.go_to_shop()
+	var card_piedestal = get_parent()
+	if not card_piedestal.can_buy():
+		return
+
+	var new_card = draw_pile_card_prefab.instantiate()
+	draw_pile.add_child(new_card)
+	visible = false
 
 func _is_active():
-	if get_parent().visible:
+	if get_parent().visible and visible:
 		return true
 	return false
 
@@ -32,3 +37,5 @@ func _on_mouse_exited() -> void:
 
 func _on_mouse_entered() -> void:
 	mouse_hovering = true
+
+

@@ -1,17 +1,15 @@
 extends StaticBody2D
 
-@export var overlay: Node2D
-@export var deck: Node2D
 @export var camera: Camera2D
+@export var pot: Node2D
 
 var mouse_hovering = false
 var mouse_down = false
 
 
 func _pressed():
-	overlay.clear()
-	deck.reset()
-	camera.go_to_shop()
+	pot.start_new_battle()
+	camera.go_to_board()
 
 func _is_active():
 	if get_parent().visible:
