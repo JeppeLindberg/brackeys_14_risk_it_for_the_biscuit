@@ -9,7 +9,7 @@ var mouse_down = false
 
 func _pressed():
 	hit_me_or_stay_buttons.visible = false
-	deck.begin_draw_dealer()
+	deck.begin_count_score()
 
 func _is_active():
 	if get_parent().visible:

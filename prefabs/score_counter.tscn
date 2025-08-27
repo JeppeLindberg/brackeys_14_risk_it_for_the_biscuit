@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0jrt74sfm6hj"]
+
+[ext_resource type="Script" uid="uid://bxqwkfjxhscmt" path="res://scripts/score_counter.gd" id="1_h2yjd"]
+
+[node name="score_counter" type="Node2D" node_paths=PackedStringArray("score_count_cooldown")]
+script = ExtResource("1_h2yjd")
+score_count_cooldown = NodePath("score_count_cooldown")
+
+[node name="score_count_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="score_count_cooldown" to="." method="_on_score_count_cooldown_timeout"]

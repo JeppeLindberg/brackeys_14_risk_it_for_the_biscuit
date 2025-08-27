@@ -1,14 +1,12 @@
 extends StaticBody2D
 
 @export var camera: Camera2D
-@export var pot: Node2D
 
 var mouse_hovering = false
 var mouse_down = false
 
 
 func _pressed():
-	pot.start_new_battle()
 	camera.go_to_board()
 
 func _is_active():
