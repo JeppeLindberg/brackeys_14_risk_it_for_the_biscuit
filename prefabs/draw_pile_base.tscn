@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dshnqmio4ljgr"]
+
+[ext_resource type="Texture2D" uid="uid://b3uux8sd2vi7a" path="res://sprites/draw_pile_card.png" id="1_e3rbi"]
+
+[node name="draw_pile_base" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-23, 0)
+texture = ExtResource("1_e3rbi")

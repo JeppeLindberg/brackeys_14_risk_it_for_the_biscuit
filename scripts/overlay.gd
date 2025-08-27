@@ -14,7 +14,7 @@ func _ready() -> void:
 	clear()
 
 func activate_player_is_bust():
-	display_text('PLAYER IS BUST');
+	display_text('BUST!');
 	hit_me_or_stay.visible = false
 	pending_go_to_count_score = true
 

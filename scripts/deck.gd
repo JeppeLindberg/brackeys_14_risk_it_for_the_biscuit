@@ -18,6 +18,7 @@ func draw_player():
 	player_hand.add_child(new_card)
 	new_card.global_position = global_position
 	draw_pile.get_child(draw_index).drawn = true
+	draw_pile.get_child(draw_index).fade_out()
 
 	if player_score.get_score() > 21:
 		overlay.activate_player_is_bust()
@@ -44,3 +45,4 @@ func reset():
 		child.queue_free()
 	for child in draw_pile.get_children():
 		child.drawn = false
+		child.fade_in()
