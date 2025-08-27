@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b1h5m2ppiw4vh"]
+[gd_scene load_steps=42 format=3 uid="uid://b1h5m2ppiw4vh"]
 
 [ext_resource type="PackedScene" uid="uid://chwlc165oosec" path="res://prefabs/deck.tscn" id="1_jbj1t"]
 [ext_resource type="Script" uid="uid://bi4lbv7qlpbhu" path="res://scripts/main.gd" id="1_og1vs"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bfwbrulhski62" path="res://prefabs/overlay.tscn" id="22_pm3ni"]
 [ext_resource type="Script" uid="uid://bger7r7x2nd6g" path="res://scripts/available_cards.gd" id="23_fuf3a"]
 [ext_resource type="PackedScene" uid="uid://df5gtiilxy7p0" path="res://prefabs/card_piedestal.tscn" id="24_pibwh"]
+[ext_resource type="PackedScene" uid="uid://bm4xt08l3xikc" path="res://prefabs/draw_pile_card_jack.tscn" id="39_5poiv"]
 [ext_resource type="Texture2D" uid="uid://dfjixqwta2ylg" path="res://sprites/bg.png" id="40_5he1u"]
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("draw_pile", "money")]
@@ -351,6 +352,8 @@ script = ExtResource("6_o6xl0")
 [node name="card8" parent="camera/draw_pile" instance=ExtResource("14_yc10j")]
 
 [node name="card9" parent="camera/draw_pile" instance=ExtResource("15_jscy8")]
+
+[node name="card10" parent="camera/draw_pile" instance=ExtResource("39_5poiv")]
 
 [node name="overlay" parent="camera" node_paths=PackedStringArray("score_counter", "hit_me_or_stay") instance=ExtResource("22_pm3ni")]
 position = Vector2(-262, -151)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6hhcnpb1pypa"]
+
+[ext_resource type="Script" uid="uid://cnewqc2g14bo0" path="res://scripts/hand_card.gd" id="1_ob0i3"]
+[ext_resource type="PackedScene" uid="uid://fj0mhkudf80" path="res://prefabs/base_card.tscn" id="2_xpnvh"]
+[ext_resource type="Texture2D" uid="uid://bwv2cx8aw4r2" path="res://sprites/card_jack.png" id="3_ob0i3"]
+[ext_resource type="FontFile" uid="uid://ci21lm8lt5rxg" path="res://fonts/BoldPixels.ttf" id="4_ip2ah"]
+
+[sub_resource type="Theme" id="Theme_0gyqb"]
+default_font = ExtResource("4_ip2ah")
+default_font_size = 16
+
+[node name="hand_card" type="Node2D"]
+script = ExtResource("1_ob0i3")
+
+[node name="base_card" parent="." instance=ExtResource("2_xpnvh")]
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+texture_filter = 1
+texture = ExtResource("3_ob0i3")
+
+[node name="text" type="Label" parent="visual"]
+modulate = Color(0.219608, 0.113725, 0.305882, 1)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -33.5
+offset_right = 21.0
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0gyqb")
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
