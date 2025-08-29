@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3vo520r8182e"]
+[gd_scene load_steps=5 format=3 uid="uid://b3vo520r8182e"]
 
 [ext_resource type="Script" uid="uid://be5xjhhgvg5wx" path="res://scripts/button_hit_me.gd" id="1_qha3u"]
-[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="2_y3t8d"]
+[ext_resource type="Texture2D" uid="uid://cadwxqrfb588v" path="res://sprites/button.png" id="2_l3u46"]
+[ext_resource type="Theme" uid="uid://7ooqas1vm0iv" path="res://fonts/bold_pixels.tres" id="3_thvno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
-size = Vector2(226, 45)
+size = Vector2(156, 44)
 
 [node name="hit_me_button" type="StaticBody2D"]
 input_pickable = true
@@ -13,11 +14,12 @@ script = ExtResource("1_qha3u")
 [node name="visual" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="visual"]
-scale = Vector2(2.25615, 0.444868)
-texture = ExtResource("2_y3t8d")
+texture_filter = 1
+texture = ExtResource("2_l3u46")
 
 [node name="text" type="Label" parent="visual"]
-modulate = Color(0.114897, 0.114897, 0.114897, 1)
+modulate = Color(0.12549, 0.0313726, 0.0862745, 1)
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,11 +31,14 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_thvno")
+theme_override_font_sizes/font_size = 32
 text = "HIT ME"
-horizontal_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
+texture_filter = 1
 shape = SubResource("RectangleShape2D_sugp2")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

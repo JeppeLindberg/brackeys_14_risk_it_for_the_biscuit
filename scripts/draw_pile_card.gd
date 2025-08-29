@@ -2,6 +2,8 @@ extends Node2D
 
 @export var hand_card_prefab: PackedScene
 
+@export var sort_order = 0
+
 var clear_color = Color.WHITE
 var faded_color = Color(0.5,0.5,0.5,1.0)
 var from_color = clear_color
@@ -10,6 +12,7 @@ var to_color = clear_color
 var drawn = false
 
 var fade_progress = 1.0
+
 
 
 func _process(delta: float) -> void:
@@ -36,6 +39,8 @@ func get_value():
 
 func get_hand_card():
 	return(hand_card_prefab)
+
+
 
 
 

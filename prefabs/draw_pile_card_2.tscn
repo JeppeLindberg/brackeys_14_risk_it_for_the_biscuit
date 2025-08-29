@@ -1,14 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8erksjsu8k07"]
 
 [ext_resource type="Script" uid="uid://bwxeanvj8f2qa" path="res://scripts/draw_pile_card.gd" id="1_il12n"]
-[ext_resource type="PackedScene" uid="uid://d3eghb5g73w0u" path="res://prefabs/hand_card_2.tscn" id="2_vmm2f"]
+[ext_resource type="PackedScene" uid="uid://t7cqnnp5lvoi" path="res://prefabs/hand_card_ace.tscn" id="2_6rii3"]
 [ext_resource type="PackedScene" uid="uid://dshnqmio4ljgr" path="res://prefabs/draw_pile_base.tscn" id="3_kda2e"]
 [ext_resource type="Texture2D" uid="uid://d050ql2aixroj" path="res://sprites/draw_pile_card_basic.png" id="4_6rii3"]
 [ext_resource type="Theme" uid="uid://7ooqas1vm0iv" path="res://fonts/bold_pixels.tres" id="5_6rii3"]
 
 [node name="card" type="Node2D"]
 script = ExtResource("1_il12n")
-hand_card_prefab = ExtResource("2_vmm2f")
+hand_card_prefab = ExtResource("2_6rii3")
+sort_order = 7
 
 [node name="draw_pile_base" parent="." instance=ExtResource("3_kda2e")]
 
@@ -34,6 +35,6 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_6rii3")
-text = "2"
+text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1

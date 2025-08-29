@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ph6yb08h0wl3"]
+
+[ext_resource type="Script" uid="uid://bwxeanvj8f2qa" path="res://scripts/draw_pile_card.gd" id="1_enlcl"]
+[ext_resource type="PackedScene" uid="uid://bjb4sk5p0srut" path="res://prefabs/hand_card_queen.tscn" id="2_enlcl"]
+[ext_resource type="PackedScene" uid="uid://dshnqmio4ljgr" path="res://prefabs/draw_pile_base.tscn" id="3_411pk"]
+[ext_resource type="Texture2D" uid="uid://bot2n3o1ljf1p" path="res://sprites/draw_pile_card_picture.png" id="4_jqdc4"]
+[ext_resource type="Theme" uid="uid://7ooqas1vm0iv" path="res://fonts/bold_pixels.tres" id="5_8txb6"]
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_enlcl")
+hand_card_prefab = ExtResource("2_enlcl")
+sort_order = 9
+
+[node name="draw_pile_base" parent="." instance=ExtResource("3_411pk")]
+
+[node name="visual" type="Node2D" parent="."]
+position = Vector2(31, 0)
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+texture_filter = 1
+texture = ExtResource("4_jqdc4")
+
+[node name="text" type="Label" parent="visual"]
+modulate = Color(0.219608, 0.113725, 0.305882, 1)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 30.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_8txb6")
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1

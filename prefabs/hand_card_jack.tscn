@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6hhcnpb1pypa"]
+[gd_scene load_steps=7 format=3 uid="uid://b6hhcnpb1pypa"]
 
 [ext_resource type="Script" uid="uid://cnewqc2g14bo0" path="res://scripts/hand_card.gd" id="1_ob0i3"]
 [ext_resource type="PackedScene" uid="uid://fj0mhkudf80" path="res://prefabs/base_card.tscn" id="2_xpnvh"]
 [ext_resource type="Texture2D" uid="uid://bwv2cx8aw4r2" path="res://sprites/card_jack.png" id="3_ob0i3"]
 [ext_resource type="FontFile" uid="uid://ci21lm8lt5rxg" path="res://fonts/BoldPixels.ttf" id="4_ip2ah"]
+[ext_resource type="Script" uid="uid://dbm3pgfjjrmm4" path="res://scripts/hand_card_jack.gd" id="5_xpnvh"]
 
 [sub_resource type="Theme" id="Theme_0gyqb"]
 default_font = ExtResource("4_ip2ah")
@@ -38,3 +39,6 @@ theme = SubResource("Theme_0gyqb")
 text = "J"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="implementation" type="Node2D" parent="."]
+script = ExtResource("5_xpnvh")

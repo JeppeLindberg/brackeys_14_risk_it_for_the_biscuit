@@ -20,7 +20,15 @@ func draw_player():
 	draw_pile.get_child(draw_index).drawn = true
 	draw_pile.get_child(draw_index).fade_out()
 
+	_evaluate_player_score()
+
+func _evaluate_player_score():
 	if player_score.get_score() > 21:
+		for card in player_hand.get_children():
+			if card.try_downgrade_value():
+				_evaluate_player_score()
+				return
+
 		overlay.activate_player_is_bust()
 
 func begin_count_score():

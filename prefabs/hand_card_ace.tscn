@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://t7cqnnp5lvoi"]
+[gd_scene load_steps=7 format=3 uid="uid://t7cqnnp5lvoi"]
 
 [ext_resource type="Script" uid="uid://cnewqc2g14bo0" path="res://scripts/hand_card.gd" id="1_wcxgf"]
 [ext_resource type="PackedScene" uid="uid://fj0mhkudf80" path="res://prefabs/base_card.tscn" id="2_exfjf"]
-[ext_resource type="Texture2D" uid="uid://bkb1rtekl68jx" path="res://sprites/ace.png" id="3_wcxgf"]
+[ext_resource type="Texture2D" uid="uid://dhsl168kwfkx6" path="res://sprites/card_basic.png" id="3_exfjf"]
+[ext_resource type="FontFile" uid="uid://ci21lm8lt5rxg" path="res://fonts/BoldPixels.ttf" id="4_5d5cm"]
+[ext_resource type="Script" uid="uid://ikaufcjbg0p5" path="res://scripts/hand_card_ace.gd" id="5_5d5cm"]
+
+[sub_resource type="Theme" id="Theme_epqwb"]
+default_font = ExtResource("4_5d5cm")
+default_font_size = 16
 
 [node name="hand_card" type="Node2D"]
 script = ExtResource("1_wcxgf")
@@ -13,4 +19,26 @@ script = ExtResource("1_wcxgf")
 
 [node name="sprite" type="Sprite2D" parent="visual"]
 texture_filter = 1
-texture = ExtResource("3_wcxgf")
+texture = ExtResource("3_exfjf")
+
+[node name="text" type="Label" parent="visual"]
+modulate = Color(0.219608, 0.113725, 0.305882, 1)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -33.5
+offset_right = 21.0
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_epqwb")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="implementation" type="Node2D" parent="."]
+script = ExtResource("5_5d5cm")

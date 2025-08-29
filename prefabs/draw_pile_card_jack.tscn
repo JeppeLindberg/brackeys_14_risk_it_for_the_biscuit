@@ -9,6 +9,7 @@
 [node name="card" type="Node2D"]
 script = ExtResource("1_oal4j")
 hand_card_prefab = ExtResource("2_oal4j")
+sort_order = 10
 
 [node name="draw_pile_base" parent="." instance=ExtResource("3_e6v00")]
 

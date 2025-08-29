@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b1h5m2ppiw4vh"]
+[gd_scene load_steps=44 format=3 uid="uid://b1h5m2ppiw4vh"]
 
 [ext_resource type="PackedScene" uid="uid://chwlc165oosec" path="res://prefabs/deck.tscn" id="1_jbj1t"]
 [ext_resource type="Script" uid="uid://bi4lbv7qlpbhu" path="res://scripts/main.gd" id="1_og1vs"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://df5gtiilxy7p0" path="res://prefabs/card_piedestal.tscn" id="24_pibwh"]
 [ext_resource type="PackedScene" uid="uid://bm4xt08l3xikc" path="res://prefabs/draw_pile_card_jack.tscn" id="39_5poiv"]
 [ext_resource type="Texture2D" uid="uid://dfjixqwta2ylg" path="res://sprites/bg.png" id="40_5he1u"]
+[ext_resource type="PackedScene" uid="uid://bd3w2r4cnlrws" path="res://prefabs/draw_pile_card_king.tscn" id="40_chjal"]
+[ext_resource type="PackedScene" uid="uid://ph6yb08h0wl3" path="res://prefabs/draw_pile_card_queen.tscn" id="41_cjqg0"]
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("draw_pile", "money")]
 script = ExtResource("1_og1vs")
@@ -54,7 +56,7 @@ visible = false
 position = Vector2(-278, -154)
 
 [node name="shop" parent="board/shop_or_double_down" node_paths=PackedStringArray("overlay", "deck", "camera") instance=ExtResource("5_og1vs")]
-position = Vector2(141, 272)
+position = Vector2(253, 272)
 overlay = NodePath("../../../camera/overlay")
 deck = NodePath("../../../camera/deck")
 camera = NodePath("../../../camera")
@@ -63,11 +65,11 @@ camera = NodePath("../../../camera")
 position = Vector2(-278, -154)
 
 [node name="hit_me_button" parent="board/hit_me_or_stay" node_paths=PackedStringArray("deck") instance=ExtResource("2_0wfyh")]
-position = Vector2(397, 271)
+position = Vector2(449, 272)
 deck = NodePath("../../../camera/deck")
 
 [node name="stay_button" parent="board/hit_me_or_stay" node_paths=PackedStringArray("deck", "hit_me_or_stay_buttons") instance=ExtResource("4_muem4")]
-position = Vector2(141, 272)
+position = Vector2(253, 272)
 deck = NodePath("../../../camera/deck")
 hit_me_or_stay_buttons = NodePath("..")
 
@@ -310,7 +312,7 @@ card_piedestal = ExtResource("24_pibwh")
 position = Vector2(-278, -154)
 
 [node name="return_to_board" parent="shop/return_to_board" node_paths=PackedStringArray("camera") instance=ExtResource("14_vxglm")]
-position = Vector2(131, 271)
+position = Vector2(253, 272)
 camera = NodePath("../../../camera")
 
 [node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("shop", "available_cards", "board", "overlay", "shop_or_double_down", "hit_me_or_stay")]
@@ -354,6 +356,10 @@ script = ExtResource("6_o6xl0")
 [node name="card9" parent="camera/draw_pile" instance=ExtResource("15_jscy8")]
 
 [node name="card10" parent="camera/draw_pile" instance=ExtResource("39_5poiv")]
+
+[node name="card11" parent="camera/draw_pile" instance=ExtResource("40_chjal")]
+
+[node name="card12" parent="camera/draw_pile" instance=ExtResource("41_cjqg0")]
 
 [node name="overlay" parent="camera" node_paths=PackedStringArray("score_counter", "hit_me_or_stay") instance=ExtResource("22_pm3ni")]
 position = Vector2(-262, -151)

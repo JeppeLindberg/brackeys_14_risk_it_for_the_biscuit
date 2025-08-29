@@ -1,23 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyklelnhty7k7"]
+[gd_scene load_steps=5 format=3 uid="uid://cyklelnhty7k7"]
 
 [ext_resource type="Script" uid="uid://jpmw4d7i053l" path="res://scripts/button_shop.gd" id="1_q3rys"]
-[ext_resource type="Texture2D" uid="uid://bux55av3ogfrh" path="res://sprites/white.png" id="2_2sq2p"]
+[ext_resource type="Texture2D" uid="uid://cadwxqrfb588v" path="res://sprites/button.png" id="2_2sq2p"]
+[ext_resource type="Theme" uid="uid://7ooqas1vm0iv" path="res://fonts/bold_pixels.tres" id="3_yuo63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
-size = Vector2(224, 44)
+size = Vector2(154, 44)
 
 [node name="shop" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_q3rys")
 
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jbj1t")
+
 [node name="visual" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="visual"]
-scale = Vector2(2.25615, 0.444868)
+texture_filter = 1
 texture = ExtResource("2_2sq2p")
 
 [node name="text" type="Label" parent="visual"]
-modulate = Color(0.114897, 0.114897, 0.114897, 1)
+modulate = Color(0.12549, 0.0313726, 0.0862745, 1)
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,12 +34,11 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "GO TO SHOP"
-horizontal_alignment = 2
-
-[node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_jbj1t")
+theme = ExtResource("3_yuo63")
+theme_override_font_sizes/font_size = 32
+text = "SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

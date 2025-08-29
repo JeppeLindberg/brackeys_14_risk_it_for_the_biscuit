@@ -13,6 +13,7 @@ default_font_size = 16
 [node name="card" type="Node2D"]
 script = ExtResource("1_lh37i")
 hand_card_prefab = ExtResource("2_uo1v2")
+sort_order = -10
 
 [node name="draw_pile_base" parent="." instance=ExtResource("3_fdtd6")]
 
